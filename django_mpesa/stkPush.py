@@ -14,15 +14,15 @@ def initiate_stk_push(request):
         if access_token:
             amount = 1
             phone = "2547123456789"
-            passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"
-            business_short_code = '174379'
+            passkey = "MPESA_PASSKEY"
+            business_short_code = 'MPESA_SHORTCODE'
             process_request_url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
-            callback_url = 'https://kariukijames.com/callback'
+            callback_url = 'api/mpesa/callback'
             timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
             password = base64.b64encode((business_short_code + passkey + timestamp).encode()).decode()
             party_a = phone
             party_b = '2541123456789'
-            account_reference = 'WEB-WAVE-ENTERPRISES'
+            account_reference = 'Your Account Name'
             transaction_desc = 'stkpush test'
             stk_push_headers = {
                 'Content-Type': 'application/json',
